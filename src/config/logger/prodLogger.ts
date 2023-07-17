@@ -1,6 +1,7 @@
 import { createLogger, format, transports } from 'winston';
 const { combine, timestamp, json } = format;
 
+// Logger for production environment.
 const prodLogger = () => {
 
     return createLogger({

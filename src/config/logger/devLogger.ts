@@ -1,6 +1,8 @@
+// Import winston package
 import { createLogger, format, transports } from 'winston';
 const { combine, timestamp, printf, colorize, prettyPrint, label, splat } = format;
 
+// Create Logger for development environment
 export const devLogger = () => {
     const myFormat = printf(info => {
         return `[${info.label}] ${info.timestamp} [${info.level}]: ${info.message}`;
