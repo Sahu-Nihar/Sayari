@@ -9,6 +9,9 @@ import { sequelize } from './database';
 
 // Import routes
 import userRouter from './api/routes/user';
+import questionRouter from './api/routes/question';
+import commentRouter from './api/routes/comment';
+import answerRouter from './api/routes/answer';
 
 const { PORT, API_VERSION } = constants;
 
@@ -39,9 +42,9 @@ app.get("/", (req:express.Request, res:express.Response) => {
 
 // Routes
 app.use(API_VERSION, userRouter);
-// app.use(API_VERSION, questionRouter);
-// app.use(API_VERSION, commentRouter);
-// app.use(API_VERSION, answerRouter);
+app.use(API_VERSION, questionRouter);
+app.use(API_VERSION, commentRouter);
+app.use(API_VERSION, answerRouter);
 
 // Use port to establish connection with the server
 // Authenticate DB connection and sync created tables in the DB

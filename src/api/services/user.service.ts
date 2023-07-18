@@ -318,7 +318,7 @@ const validateRegisteredUser = async (email:string, password:string) => {
 };
 
 // Searches for user with provided userId in the user table.
-const findUserById = async (userId:number) => {
+export const findUserById = async (userId:number) => {
     try {
         const returnData = await User.findByPk(userId);
 
@@ -326,6 +326,11 @@ const findUserById = async (userId:number) => {
             success: false,
             message: 'User not found!'
         };
+
+        if (returnData.dataValues.status == 'inactive') return {
+            success: false,
+            message: 'Email verification is required!'
+        }
 
         return {
             success: true,
