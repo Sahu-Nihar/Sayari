@@ -428,6 +428,12 @@
         AUTH_PASS=<registered_mailer_password_for_nodemailer>
         VERIFICATION_SUBJECT=<any_subject>
 
+    - You also need to run the generateKeyPairs.ts file before running the application,
+    Use the following command on command line:
+    ts-node src/config/encryptionKey/generateKeyPairs.ts
+
+    - The above command generates 2 Asymmetric key of .pem type that is used in jwt encoding and decoding in the application
+
     - after you have installed dependencies and setup is completed to run the application run command on your command line:
         npm run dev
 
